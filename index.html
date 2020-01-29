@@ -1,0 +1,41 @@
+{% load static %}
+
+<html>
+<head>
+<title>JUMS</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{% static 'jums/stylesheet.css' %}">
+<body>
+<h1>Jadavpur University Management System</h1>
+<img src="{% static "jums/julogo.png" %}" alt="My image">
+<br>
+<br>
+<div align="right">
+<form action="take_to_signup_page">
+<input type=submit value="Not user? Sign up">
+</form>
+</div>
+<br>
+<div align="right">
+<form action="login" method='POST'>
+{% csrf_token %}
+<input type="text" name="username" placeholder="Roll number" size=35><br>
+<input type="password" name="password" placeholder="password" size=35><br>
+<input type="submit" value="Login" size=25>
+</form>
+</div>
+<div align =right>
+<form action="forgot_password">
+<input type="submit" value="Forgot password?">
+</div>
+{% if messages %}
+{% for message in messages %}
+<li>{{message}}</li>
+{% endfor %}
+{% else %}
+<h3>No messages</h3>{% endif %}
+<br>
+<h3>Faculty</h3>
+<a href="{% static "jums/FEngg_2019.pdf" %}">FET Teachers</a>
+</body>
+</html>

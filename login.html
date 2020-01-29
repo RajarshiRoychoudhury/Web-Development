@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Student login</title>
+</head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'jums/stylesheet.css' %}">
+<body>
+{% if messages %}
+{% for message in messages %}<h3>{{message}}</h3>{% endfor %}
+{% endif %}
+<div align=right>
+<form action="forgot_password">
+<input type="submit" value="forgot_password">
+</form>
+</div>
+{% for user  in users %}
+<li>FirstName:{{user.first_name}}</li><br>
+<li>LastName:{{user.last_name}}</li><br>
+<li>roll:{{user.username}}</li><br>
+<li>email:{{user.email}}</li><br>
+<li>phone:{{user.phone}}</li><br>
+<li>course:{{user.course}}</li><br>
+<li>department:{{user.department}}</li><br>
+<li>Library card issued:{{user.library_card_issued}}</li><br>
+{% endfor %}
+<div align=centre>
+<form action="logout">
+<input type="submit" value="logout">
+</form>
+</div>
+</body>
+</html>

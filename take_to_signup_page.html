@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'jums/stylesheet.css' %}">
+{% if messages %}
+{% for message in messages %}
+<li>{{message}}</li>
+{% endfor %}
+{% endif %}
+<ul>
+<h1 align=center>Enter Credentials</h1>
+<h2>Student Details</h2><br>
+    <form action="/" method='POST'>
+    {% csrf_token %}
+    <input type="text" placeholder="First_Name" name='first_name' size=35><br>
+    <input type="text" placeholder="Last_Name" name='last_name' size=35><br>
+    <input type="text" placeholder="Roll" size=35 name='username' ><br>
+    <input type="text" placeholder="Course" size=35 name='course'><br>
+    <input type="text" placeholder="Department" size=35 name='department'><br>
+    <input type="email" placeholder="Email" size=35 name='email'><br>
+    <input type="text" placeholder="Phone" size=35 name='phone'><br>
+    <input type="password" placeholder="password" size=35 name='password1'><br>
+    <input type="password" placeholder="Confirm password" size=35 name='password2'>
+    <input type="submit">
+    </form>
+</ul>
